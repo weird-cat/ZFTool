@@ -81,11 +81,14 @@ class CreateController extends AbstractActionController
     public function controllerAction()
     {
         $console = $this->getServiceLocator()->get('console');
-        $tmpDir  = sys_get_temp_dir();
         $request = $this->getRequest();
         $name    = $request->getParam('name');
         $module  = $request->getParam('module');
-        $path    = '.';
+        $path    = rtrim($request->getParam('path'), '/');
+
+        if (empty($path)) {
+            $path = '.';
+        }
 
         if (!file_exists("$path/module") || !file_exists("$path/config/application.config.php")) {
             return $this->sendError(

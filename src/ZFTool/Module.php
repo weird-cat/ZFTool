@@ -82,9 +82,10 @@ class Module implements ConsoleUsageProviderInterface, AutoloaderProviderInterfa
             array('<path>', 'The root path of a ZF2 application where to create the module'),
 
             'Controller creation:',
-            'create controller <name> <module>' => 'create a controller in module',
+            'create controller <name> <module> [<path>]' => 'create a controller in module',
             array('<name>', 'The name of the controller to be created.'),
             array('<module>', 'The module in which the controller should be created.'),
+            array('<path>', 'The root path of a ZF2 application where to create the module'),
 
             'Classmap generator:',
             'classmap generate <directory> <classmap file> [--append|-a] [--overwrite|-w]' => '',
