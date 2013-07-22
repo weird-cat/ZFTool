@@ -126,7 +126,7 @@ class CreateController extends AbstractActionController
 
         $dir = $path . "/module/$module/view/" . strtolower($module) . "/" . strtolower($name);
         if (!file_exists($dir)) {
-            mkdir($dir);
+            mkdir($dir, /* mode */ 0777, /* recursive */ true);
         }
 
         $phtml = false;
